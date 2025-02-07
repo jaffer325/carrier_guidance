@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+ body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Floating Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #7d1eb4;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chat Window */
+        .chat-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            border: 2px solid #7d1eb4;
+        }
+
+        .chat-header {
+            background: #7d1eb4;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: move;
+        }
+
+        .chat-header span {
+            flex: 1;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .chat-body {
+            height: 200px;
+            padding: 10px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 5px;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .chat-footer button {
+            background: #7d1eb4;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .chat-footer button:hover {
+            background: #5a1480;
+        }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+p{
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: whitesmoke;
+}
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(3, 30, 117, 0.3),rgba(0, 0, 0, 0.6)), url(pic/3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
+    position: relative;
+}
+.header:before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    opacity: 0.3;
+    z-index: -1;
+    background: linear-gradient(to right, #0051fff1 0%, #1f0874c2 0%, #07ffdeef 100%);
+}
+.company{
+    font-size: 550% !important;
+}
+.navbar:before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    opacity: 0.6;
+    z-index: -1;
+    background: linear-gradient(to right, #000000 0%, #000000f6 0%, #3f2400 100%);
+}
+.nav-item a{
+    color: #fff !important;
+    font-weight: bold;
+}
+.header-section{
+    width: 100%;
+    height: inherit;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.center-div{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    -ms-transform: translateY(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateY(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.header-buttons a{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    margin: 0 5px;
+    padding: 12px 35px;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    transition: ease 0.5s;
+}
+.header-buttons a:hover{
+    color: #3f2200;
+    background: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+.mx{
+    padding-top: 10%;
+    margin-left: 36%;
+}
+.carousel-inner{
+            border: 1px solid white!important;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgb(0, 0, 0);
+        }
+        
+        .dropdown-menu{
+            margin-left: 88%;
+        }
+        .card{
+            position: relative;
+            height: 400px;
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .card .post-image{
+            position: absolute!important;
+            height:100%!important;
+            overflow: hidden;
+        }
+       .card .post-image img{
+           transition: 0.5s;
+           width:100%!important;
+       }
+       .card:hover .post-image img{
+           transform: scale(1.2) translateY(-50px);
+       }
+       .card .news-content{
+          position: absolute;
+          bottom: -90px;
+          background: #fff;
+          padding: 20px;
+          transition: 0.5s;
+       }
+       .card:hover .news-content{
+           bottom: 0;
+       }
+       .card .news-content .post-meta a{
+           text-decoration: none;
+           padding-right: 10px;
+           color: #262626;
+           font-weight: bold;
+           transition: 0.5s;
+       }
+       .card .news-content .post-meta a:hover{
+           color: #DF084A;
+       }
+       .card .news-content .post-header{
+           margin: 0;
+           padding: 10px 0;
+           color: #007DA6;
+           height: 100px;
+           background: white;
+           font-size: 25px;
+           overflow: hidden;
+       }
+       .card .news-content p{
+           font-size: 16px;
+           margin: 10px 0 0;
+           padding: 0;
+           color: #262626;
+           transition: 0.5s;
+           opacity: 0;
+       }
+       .card:hover .news-content p{
+        opacity: 1;
+        cursor: pointer;
+       }
+       .carousel-item img{
+           width: 100%;
+           
+       }
+       .carousel-caption{
+           top: 300px;
+       }
+       .carousel-caption a{
+           font-size: 45px;
+           text-decoration: none;
+           color: white;
+           letter-spacing: 2px;
+       }
+       .carousel-caption p{
+           width: 75%;
+           margin: auto;
+           font-size: 14px;
+           line-height: 1.5;
+       }
+       .contain h1{
+         margin-left: 35%!important;
+
+       }
+       .footer-distributed{
+          border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background: rgb(80, 80, 80);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 55px 50px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left{
+            width: 40%;
+        }
+
+        /* The company logo */
+
+        .footer-distributed h3{
+            color:  #ffffff;
+            font: normal 36px 'Open Sans', cursive;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span{
+            color:  lightseagreen;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links{
+            color:  #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a{
+            display:inline-block;
+            line-height: 1.8;
+        font-weight:400;
+            text-decoration: none;
+            color:  inherit;
+        }
+
+        .footer-distributed .footer-company-name{
+            color:  rgb(204, 204, 204);
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center{
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+            background-color:  #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p{
+            display: inline-block;
+            color: #ffffff;
+        font-weight:400;
+            vertical-align: middle;
+            margin:0;
+        }
+
+        .footer-distributed .footer-center p span{
+            display:block;
+            font-weight: normal;
+            font-size:14px;
+            line-height:2;
+        }
+
+        .footer-distributed .footer-center p a{
+            color:  lightseagreen;
+            text-decoration: none;;
+        }
+
+        .footer-distributed .footer-links a:before {
+        content: "|";
+        font-weight:300;
+        font-size: 20px;
+        left: 0;
+        color: #fff;
+        display: inline-block;
+        padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+        content: none;
+        }
+
+        /* Footer Right */
+
+        .footer-distributed .footer-right{
+            width: 20%;
+        }
+
+        .footer-distributed .footer-company-about{
+            line-height: 20px;
+            color:  #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-company-about span{
+            display: block;
+            color:  #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-distributed .footer-icons{
+            margin-top: 25px;
+        }
+
+        .footer-distributed .footer-icons a{
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color:  #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+
+            .footer-distributed{
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right{
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i{
+                margin-left: 0;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid text-uppercase">
+            <a class="navbar-brand font-weight-bold text-white" href="#">Career .com</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    Course
+                  </a>
+                  <div class="dropdown-menu ">
+                    <a class="dropdown-item" href="science.html">Engineering</a><hr>
+                    <a class="dropdown-item" href="commerce.html">Medical</a><hr>
+                    <a class="dropdown-item" href="arts.html">Arts</a><hr>
+                    <a class="dropdown-item" href="diploma.html">Diploma</a>
+                  </div>          
+              </ul>
+            </div>
+        </div>
+          </nav>
+          <section class="header-section">
+            <div class="center-div">
+                <h1 class="company font-weight-bold">Career Counselling</h1>
+                <p class="p-3">Courses After 12th</p>
+                <div class="header-buttons">
+                    <a href="aboutus.html">About Us</a>
+                    <a href="contact us.html">Contact Us</a><br><br><br>
+                    <a href="signin.html">Sign In</a>
+                </div>
+            </div>          
+          </section>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <div class="contain">
+                <h1>Which field to choose?</h1>
+
+               The biggest decision post class 12 is picking the right stream. Picking the right stream is extremely important as everything that happens thereafter will depend on it. The Science stream offers you many lucrative career options such as engineering, medical, IT and computer science and even research in a variety of domains. Commerce stream can lead you to some of the most lucrative and high paying jobs such as Chartered Accountants, Company Secretaries, Accountants, Investment Banking and Financial Advisors. An Arts student can opt for career options like Journalism, Literature, Social Work, Teaching and many others.
+           </div>
+        
+       <br>
+       <br>
+       <br>
+            <div id="home" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                  <li data-target="#home" data-slide-to="0" class="active"></li>
+                  <li data-target="#home" data-slide-to="1"></li>
+                  <li data-target="#home" data-slide-to="2"></li>
+                  <li data-target="#home" data-slide-to="4"></li>
+                </ul>
+              
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="pic/17.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="arts.html">ARTS</a>
+                        <p>Humanities or what is popularly known as the Arts stream is traditionally the least preferred option among Class 10 students but this perception is changing with time. An Arts student can opt for career options like Journalism, Literature, Social Work, Teaching and many others.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="pic/8.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="science.html">ENGINEERING</a>
+                        <p>Engineering offers a wide range of career paths, including fields like mechanical, civil, electrical, and computer engineering. It focuses on solving real-world problems through innovation and technology, providing job stability and opportunities for growth in various industries.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="pic/13.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="commerce.html">MEDICAL</a>
+                        <p>The Medical field offers diverse career opportunities such as doctors, nurses, pharmacists, and researchers. With the growing global demand for healthcare professionals, it provides excellent job stability and career growth. This field allows individuals to make a meaningful impact on society while pursuing a rewarding and fulfilling career.
+
+
+
+
+
+
+
+                        </p>
+                    </div>
+                   
+                  </div>
+                  <div class="carousel-item">
+                    <img src="pic/18.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="diploma.html">DIPLOMA</a>
+                        <p>Today technical jobs are more available than “office” jobs. Employers want people with practical knowledge rather than theoretical knowledge. Those with degrees struggle before securing employment especially if they have zero experience.
+
+                            The technical part taught in diploma courses makes you ready for the job market. The rise in demand for people with technical skills has made things even easier to find a job.</p>
+                    </div>
+                   
+                  </div>
+                </div>
+              
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#home" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#home" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+              
+              </div>
+             
+        </div>
+    </section>
+    <br>
+    <br>
+    <br><br><br>
+    <div class="container">
+        <div class="contain">
+            <h1>NEWS HEADLINES</h1><hr class="mx-auto">
+       </div>   
+    </div>
+    <section>
+       <div class="container-fluid">
+           <div class="container">
+               <div class="row my-5">
+                   <div class="col-lg-4">
+                       <div class="card">
+                           <div class="post-image">
+                               <img src="pic/2.jpg" class=" img-fluid">
+                           </div>
+                           <div class="news-content">
+                               <div class="post-meta">
+                                   <span class="author">
+                                       <a href="#">
+                                           <i class="fa fa-user">THE HINDU</i>
+                                       </a>
+                                   </span>
+                                   <span class="time">
+                                    <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                                        <a href="#">
+                                            Feb 7,2025
+                                        </a>
+                                   </span>
+                                   <span class="comments pull-right">
+                                    <a href="#">
+                                        <i class="fa fa-commenting-o">9,566</i>
+                                    </a>
+                               </span>
+                               <div class="clearfix"></div>
+                               </div>
+                               <h2 class="post-header">98 of 849 junior colleges in Tamilnadu set to get extra seats</h2>
+                               <p>
+                                ENGINEERING ADMISSIONS: Nearly 12% colleges eligible till now; colleges wanting to add seats can apply: officials...
+                               </p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-lg-4">
+                    <div class="card">
+                        <div class="post-image">
+                            <img src="pic/6.jpg" class=" img-fluid">
+                        </div>
+                        <div class="news-content">
+                            <div class="post-meta">
+                                <span class="author">
+                                    <a href="#">
+                                        <i class="fa fa-user">EDU times</i>
+                                    </a>
+                                </span>
+                                <span class="time">
+                                    <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                                     <a href="#">
+                                         Feb 7,2025
+                                     </a>
+                                </span>
+                                <span class="comments pull-right">
+                                 <a href="#">
+                                     <i class="fa fa-commenting-o">9,566</i>
+                                 </a>
+                            </span>
+                            <div class="clearfix"></div>
+                            </div>
+                            <h2 class="post-header">Tamilnadu veterinary admissions to resume, 60 top colleges to increase seats in all streams</h2>
+                            <p>
+                                increase seats in all streams For Tirunelveli and kanyakumari divisions, 10 per cent seats in select colleges will...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="post-image">
+                            <img src="pic/3.jpg">
+                        </div>
+                        <div class="news-content">
+                            <div class="post-meta">
+                                <span class="author">
+                                    <a href="#">
+                                        <i class="fa fa-user">Edunews Network</i>
+                                    </a>
+                                </span>
+                                <span class="time">
+                                    <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                                     <a href="#">
+                                        Feb 7,2025
+                                     </a>
+                                </span>
+                                <span class="comments pull-right">
+                                 <a href="#">
+                                     <i class="fa fa-commenting-o">19,566</i>
+                                 </a>
+                            </span>
+                            <div class="clearfix"></div>
+                            </div>
+                            <h2 class="post-header">Tamilnadu Medical councelling begins, check schedule</h2>
+                            <p>
+                                Medical councelling 2025 : The online submission process for the first year junior colleges has been...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+               </div>
+           </div>
+       </div>
+    </section>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+      
+            <h3>career<span>.com</span></h3>
+      
+            <p class="footer-links">
+                <a href="LandingPage.html" class="link-1">Home</a>
+                
+                <a href="#">Blog</a>
+            
+                <a href="#">Pricing</a>
+            
+                <a href="aboutus.html">About</a>
+                
+                <a href="#">Faq</a>
+                
+                <a href="contact us.html">Contact</a>
+            </p>
+      
+            <p class="footer-company-name">career.com © 2025</p>
+        </div>
+      
+        <div class="footer-center">
+      
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>44D Sripuram</span> Town, Tirunelveli</p>
+            </div>
+      
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 987 654 3210</p>
+            </div>
+      
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@career.com</a></p>
+            </div>
+      
+        </div>
+      
+        <div class="footer-right">
+      
+            <p class="footer-company-about">
+                <span>About the company</span>
+                A Career making site where you <strong>Choose</strong> your <strong>Goal</strong> as per your dream
+            </p>
+      
+            <div class="footer-icons">
+      
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube-play"></i></a>
+      
+           </div>
+      
+        </div>
+      
+      </footer>
+
+      <!-- Floating Button -->
+<button class="chat-button" onclick="toggleChat()">💬</button>
+
+<!-- Chat Window -->
+<div class="chat-container" id="chat-container">
+    <div class="chat-header" id="chat-header">
+        <span>Chat Support</span>
+        <span class="close-chat" onclick="toggleChat()">×</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+        <p><strong>Sam:</strong> Hi! How can I help you?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Write a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    // Toggle Chat Window Visibility
+    function toggleChat() {
+        let chatBox = document.getElementById("chat-container");
+        chatBox.style.display = chatBox.style.display === "none" || chatBox.style.display === "" ? "block" : "none";
+    }
+
+    // Send Message Function
+    function sendMessage() {
+        let inputField = document.getElementById("chat-input");
+        let message = inputField.value.trim();
+        if (message !== "") {
+            let chatBody = document.getElementById("chat-body");
+            let newMessage = document.createElement("p");
+            newMessage.innerHTML = "<strong>You:</strong> " + message;
+            chatBody.appendChild(newMessage);
+            inputField.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to bottom
+        }
+    }
+
+    // Make Chat Window Draggable
+    function makeDraggable() {
+        let header = document.getElementById("chat-header");
+        let chatBox = document.getElementById("chat-container");
+
+        let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
+        
+        header.onmousedown = function (event) {
+            event.preventDefault();
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            
+            document.onmousemove = function (event) {
+                event.preventDefault();
+                offsetX = mouseX - event.clientX;
+                offsetY = mouseY - event.clientY;
+                mouseX = event.clientX;
+                mouseY = event.clientY;
+
+                let rect = chatBox.getBoundingClientRect();
+                chatBox.style.left = (rect.left - offsetX) + "px";
+                chatBox.style.top = (rect.top - offsetY) + "px";
+                chatBox.style.position = "fixed";
+            };
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+    }
+
+    makeDraggable();
+</script>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

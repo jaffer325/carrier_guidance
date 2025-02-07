@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Courses after 10th -DreamCareer</title>
+<link rel = "icon" href ="logo.png" type = "image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+html {
+  width: 100%;
+  height: auto;
+}
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0;
+background: (rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(pic/6.jpg);
+background-attachment: fixed;
+background-size: cover;
+}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1525px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.btn-group1 .button {
+  background-color: #191970;
+  border: 1px solid #191970;
+  color: white;
+  padding: 20px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  float: center;
+}
+.btn-group1 .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group1 .button:hover {
+  background-color: #FFD700;
+  border: 1px solid #FFD700;
+  color: black;
+}
+
+.dropbtn{
+	background-color:#4CAF50;
+	color:white;
+	padding:16px;
+	font-size:16px;
+	border:none;
+	cursor:pointer;
+}
+.dropdown{
+	position:relative;
+	display:inline-block;
+}
+.dropdown-content{
+	display:none;
+	position:absolute;
+	right:0;
+	background-color:#f9f9f9;
+	min-width:160px;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a{
+	color:black;
+	padding:12px 16px;
+	text-decoration:none;
+	display:block;
+}
+.dropdown-content a:hover{
+	background-color:#f1f1f1;
+}
+.dropdown:hover .dropdown-content{
+	display:block;
+}
+.dropdown:hover .dropbtn{
+	background-color:#3e8e41;
+}
+.bn {
+  background-color: #696969;
+  border: none;
+  color: white;
+  padding:0px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.bn5 {background-color: #555555;}
+
+.bnf:hover {
+    background: #3b5a9b;
+}
+
+.bnt:hover {
+    background: #2baae1;
+}
+
+.bnl:hover {
+    background: #0072b2;
+}
+.bng:hover {
+    background: #fb1243;
+}
+.bnp:hover {
+    background: #fb0f79;
+}
+.bni:hover {
+    background: #3c71e7;
+}
+.bnff:hover {
+    background: #ff1700;
+}
+.bny:hover {
+    background: #f11132;
+}
+
+
+.floating-box{
+	float: left;
+	width: 450px;
+	height: 610px;
+	margin-right: 40px;
+	margin-bottom:30px;
+	margin-left:10px;
+	border: 3px solid black;
+	padding: 10px;
+}
+
+.after-box{
+	clear: left;
+	border: 0px dashed black;
+}
+
+.floting-box{
+	float: left;
+	width: 450px;
+	height: 600px;
+	margin-right: 40px;
+	margin-bottom: 30px;
+	margin-left:10px;
+	padding: 10px;
+	background-color:#f0f0f0;
+}
+
+.flotng-box{
+	width: 100%;
+	height: 400px;
+	padding: 0px;
+	float:left;
+}
+
+div.head {
+	margin : 0px
+	padding : 10px;
+	background-color: black;
+	border: 1px solid #191970;
+}
+
+.img1{}
+.img1:hover{
+	opacity: 0.2;
+}
+
+</style>
+</head>
+<body>
+<div class="head" style="font-size: 75px; text-align: center; color: white; font-family: FreeStyle Script"><img src="logo.png" width="112px" height="112px" style="float:left"> Courses after 10th</div>
+<h2 style="background-color:#191970;">
+<div class="btn-group1">
+  <button class="button" style="background-color:#FFD700;color:black;border:1px solid #FFD700;">Home</button>
+  
+  <div class="dropdown">
+  <button class="button">Courses</button>
+  <div class="dropdown-content" style="left:0;font-size:19;">
+    <a href="arts.html">Arts</a>
+    <a href="science.html">Science</a>
+    <a href="commerce.html">Commerce</a>
+    <a href="diploma.html">Diploma</a>
+  </div>
+  </div>
+    <a href="aboutus.html"><button class="button" style="float:right">About us</button></a>
+    <a href="sign.html"><button class="button" style="float:right">Signin</button></a>
+  <a href="log.html"><button class="button" style="float:right">Login</button></a>
+</div>
+</h2>
+<br><br><br>
+<h1 style="font-size:60;text-align:center;font-family:verdana;text-shadow: 2px 2px 8px #FF0000;">What after 10th?</h1>
+<br><br><br>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+<div class="w3-animate-opacity">
+  <img src="wat1.jpg" style="width:100%" height=500>
+</div>
+</div>
+
+<div class="mySlides fade">
+<div class="w3-animate-opacity">
+  <img src="wat3.jpg" style="width:100%" height=500>
+</div>
+</div>
+
+<div class="mySlides fade">
+<div class="w3-animate-opacity">
+  <img src="wat2.jpg" style="width:100%" height=500>
+</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<br><br><br><br><br>
+<h1 style="font-size:60;text-align:center;font-family:verdana;text-shadow: 2px 2px 8px #FF0000;">Which field to choose?</h1>
+<br>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The biggest decision post class 10 is picking the right stream. Picking the right stream is extremely important as everything that happens thereafter will depend on it. The Science stream offers you many lucrative career options such as engineering, medical, IT and computer science and even research in a variety of domains. Commerce stream can lead you to some of the most lucrative and high paying jobs such as Chartered Accountants, Company Secretaries, Accountants, Investment Banking and Financial Advisors. An Arts student can opt for career options like Journalism, Literature, Social Work, Teaching and many others.</h3>
+<br>
+<div style="padding:3px" class="floating-box">
+	<img src="arts.jpg" width="438" height="253"></img>
+	<h3 style="text-align:center;font-size:25;"><b><ins>ARTS</ins></b></h3>
+	<p style="font-size:19">Humanities or what is popularly known as the Arts stream is traditionally the least preferred option among Class 10 students but this perception is changing with time. An Arts student can opt for career options like Journalism, Literature, Social Work, Teaching and many others.</p>
+</div>
+
+<div style="padding:3px" class="floating-box">
+	<img src="sci.jpg" width="438" height="253"></img>
+	<h3 style="text-align:center;font-size:25;"><b><ins>SCIENCE</ins></b></h3>
+  <p style="font-size:19">Science is easily the most attractive stream and the one that almost every parent wants their child to opt for. The Science stream offers you many lucrative career options such as engineering, medical, IT and computer science and even research in a variety of domains. The biggest advantage of opting for science stream for Class 10 students is that it allows them to shift streams (Arts or Commerce) later on in their academic career.</p>
+</div>
+
+<div style="padding:3px" class="floating-box">
+	<img src="com.jpg" width="438" height="253"></img>
+	<h3 style="text-align:center;font-size:25;"><b><ins>COMMERCE</ins></b></h3>
+  <p style="font-size:19">Commerce is the second most popular stream among the Class 10 students as a career choice. If numbers, finances and economics are your forte, you must opt for Commerce Stream.</p>
+</div>
+<br>
+
+<div class="but">
+<div class="btn-group1">
+<center><a href="course.html"><button class="button">View courses for more details</button></a></center>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p style="text-align:center"><font size="5"><ins>Latest News</ins></font></p>
+<br>
+<div style="padding:3px" class="floting-box">
+  <a href="https://www.hindustantimes.com/mumbai-news/98-of-849-junior-colleges-in-mumbai-set-to-get-extra-seats/story-Q3uEIDXvZP4ia0Ft6QssNN.html">
+    <img class="img1" src="news1.jpg" width="443" height="252">
+  </a>
+    <h4>98 of 849 junior colleges in Mumbai set to get extra seats</h4>
+	<p style="color:#787878;"><font size="1"><i class="fa fa-camera"></i> Uncategorized / <i class="fa fa-user"></i> By Akansha Bhatt / <i class="fa fa-comments"></i> 9,566 Comments</font></p>
+  <br>
+  <p style="color:#787878;"><font size="3">FYJC ADMISSIONS: Nearly 12% colleges eligible till now; colleges wanting to add seats can apply: officials...</font></p>
+</div>
+
+<div style="padding:3px" class="floting-box">
+  <a href="https://indianexpress.com/article/education/fyjc-admissions-to-resume-today-60-top-colleges-to-increase-seats-in-all-streams-5787378/">
+    <img class="img1" src="news2.jpg" width="443" height="252">
+  </a>
+  <h4>Maharashtra FYJC admissions to resume, 60 top colleges to increase seats in all streams</h4>
+ <p style="color:#787878;"><font size="1"><i class="fa fa-camera"></i> Uncategorized / <i class="fa fa-user"></i> By Admin / <i class="fa fa-comments"></i> 11,074 Comments</font></p>
+  <br>
+  <p style="color:#787878;"><font size="3">For Pune and Nagpur divisions, 10 per cent seats in select colleges will be increased for arts, science and commerce streams, the state government has decided...</font></p>
+</div>
+
+<div style="padding:3px" class="floting-box">
+  <a href="https://indianexpress.com/article/education/fyjc-admissions-2019-admission-process-to-begin-for-tomorrow-check-schedule-5787180/">
+    <img class="img1" src="news3.jpg" width="443" height="252">
+  </a>
+  <h4>Maharashtra FYJC admissions begins, check schedule</h4>
+	<p style="color:#787878;"><font size="1"><i class="fa fa-camera"></i> blog / <i class="fa fa-user"></i> By Admin / <i class="fa fa-comments"></i> No Comments</font></p>
+  <br>
+  <p style="color:#787878;"><font size="3">FYJC admissions 2019: The online admission process for the first year junior colleges has been started on Wednesday. The admission process will be concluded on August 3 with the special round.</font></p>
+</div>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="flotng-box">
+<p style="background-color:black; color:white; text-align:center; padding:30px 30px;">
+<font size="2"><b>Made With Love From INDIA.
+<br>
+iDreamCareer - Find your dream career
+<br>
+Copyright 2015-2020. iDreamCareer. All Rights Reserved. All Content, Trademarks And Logos Are Copyright Of Their Respective Owners.
+</b></font>
+<br>
+<br>
+<br>
+<button class="bn bn5 bnf"><a title="Facebook" href=""><i style="color:white" class="fa fa-facebook"></i></a></button>
+<button class="bn bn5 bnt"><a title="Twitter" href=""><i style="color:white" class="fa fa-twitter"></i></a></button>
+<button class="bn bn5 bnl"><a title="Linkedin" href=""><i style="color:white" class="fa fa-linkedin"></i></a></button>
+<button class="bn bn5 bng"><a title="Google+" href=""><i style="color:white" class="fa fa-google-plus"></i></a></button>
+<button class="bn bn5 bnp"><a title="Pinterest" href=""><i style="color:white" class="fa fa-pinterest"></i></a></button>
+<button class="bn bn5 bni"><a title="Instagram" href=""><i style="color:white" class="fa fa-instagram"></i></a></button>
+<button class="bn bn5 bnff"><a title="Slideshare" href=""><i style="color:white" class="fa fa-foursquare"></i></a></button>
+<button class="bn bn5 bny"><a title="Youtube" href=""><i style="color:white" class="fa fa-youtube"></i></a></button>
+</p>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000);
+}
+</script>
+
+</body>
+</html>

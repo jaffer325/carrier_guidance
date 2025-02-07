@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            background: rgb(56, 56, 56);
+            font-family: Century Gothic;
+            max-width: 100%;
+        }
+        .contain{
+            z-index: 2;
+            max-width: 88%;
+            margin: 0 auto;
+          
+        }
+        p{
+           
+            color: rgb(175, 175, 175);
+              
+            font-size: 20px;
+        }
+        
+        .parallax-window {
+            padding: 250px 35px;
+            background: transparent;
+        }
+        .info{
+            z-index: 2;
+            position: relative;
+        }
+        .heading{
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            font-size: 100px;
+            color: rgb(255, 255, 255);
+        }
+        .head{
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            font-size: 80px;
+            color: rgb(255, 255, 255);
+        }
+        .word{
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            font-size: 40px;
+            color: rgb(255, 255, 255);
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+
+        section {
+            
+        font-family: Open Sans;
+        width: 100%;
+        display: inline-block;
+        background: rgb(228, 228, 228);
+        height: 50vh;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        text-decoration: underline;
+        }
+
+        .footer-distributed{
+            background: rgb(37, 37, 37);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 55px 50px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left{
+            width: 40%;
+        }
+
+        /* The company logo */
+
+        .footer-distributed h3{
+            color:  #ffffff;
+            font: normal 36px 'Open Sans', cursive;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span{
+            color:  lightseagreen;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links{
+            color:  #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a{
+            display:inline-block;
+            line-height: 1.8;
+        font-weight:400;
+            text-decoration: none;
+            color:  inherit;
+        }
+
+        .footer-distributed .footer-company-name{
+            color:  rgb(245, 245, 245);
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center{
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+            background-color:  #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p{
+            display: inline-block;
+            color: #ffffff;
+        font-weight:400;
+            vertical-align: middle;
+            margin:0;
+        }
+
+        .footer-distributed .footer-center p span{
+            display:block;
+            font-weight: normal;
+            font-size:14px;
+            line-height:2;
+        }
+
+        .footer-distributed .footer-center p a{
+            color:  lightseagreen;
+            text-decoration: none;;
+        }
+
+        .footer-distributed .footer-links a:before {
+        content: "|";
+        font-weight:300;
+        font-size: 20px;
+        left: 0;
+        color: #fff;
+        display: inline-block;
+        padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+        content: none;
+        }
+
+        /* Footer Right */
+
+        .footer-distributed .footer-right{
+            width: 20%;
+        }
+
+        .footer-distributed .footer-company-about{
+            line-height: 20px;
+            color:  #dfdfdf;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-company-about span{
+            display: block;
+            color:  #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-distributed .footer-icons{
+            margin-top: 25px;
+        }
+
+        .footer-distributed .footer-icons a{
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color:  #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+
+            .footer-distributed{
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right{
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i{
+                margin-left: 0;
+            }
+
+        }
+        .gotopbtn{
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: rgb(112, 101, 101);
+            bottom: 50px;
+            right: 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 28px;
+           
+        }
+        .gotopbtn:hover{
+        	background-color: white;
+        	color: black;
+        }
+        .gotop-btn{
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: rgb(112, 101, 101);
+            bottom: 120px;
+            right: 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 28px;
+        }
+        .gotop-btn:hover{
+        	background-color: white;
+        	color: black;
+        }
+    </style>
+</head>
+<body>
+    <a class="gotopbtn" href="slide.html"><i class="fa fa-home"></i></a>
+    <a class="gotop-btn" href="#"><i class="fa fa-arrow-up"></i></a>
+    <div class="contain">
+        <div class="parallax-window" data-parallax="scroll" data-z-index="1" data-image-src="pic/22.jpg">
+            <h1 class="heading">
+                About Us
+            </h1>
+        </div>
+        <br><br>
+        <p>
+                        
+            Courses After 12th is an Education portal. The portal has been created keeping 12th standard students in mind. We provide up to date guidance and articles on professional courses and careers associated with them.
+            <br><br>
+            Deciding ‘what you are going to do after Class 12’ often turns out to be one of the most important decisions of your life. For the first time, you stand at a crossroad where the decision you make will have major implications on the rest of your life. If you are not clear about the career you want to build or do not have the necessary guidance, deciding what to do after Class 10 will surely be a daunting task. And if you make a wrong choice after Class 12, you will have to live with it for the rest of your life.
+            <br><br>
+            We all know that Education is extremely important in the life of a person. What a person becomes in his/her life depends on the education that he/she gets, to a great extent. This Education portal takes care of doubts and guidance of 10th standard students.
+            <br><br>
+            12th standard is a crucial point in the life of an Indian student. It is after completing 12th standard that one is supposed to take his/her first step towards career building. The steps must be taken very carefully. And we are here to guide you!
+            <br><br>
+            Not only students, even parents may make use of Courses after 12th to obtain useful information regarding courses and careers.
+        </p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+          
+                <h3>career<span>.com</span></h3>
+          
+                <p class="footer-links">
+                    <a href="LandingPage.html" class="link-1">Home</a>
+                    
+                    <a href="#">Blog</a>
+                
+                    <a href="#">Pricing</a>
+                
+                    <a href="aboutus.html">About</a>
+                    
+                    <a href="#">Faq</a>
+                    
+                    <a href="contact us.html">Contact</a>
+                </p>
+          
+                <p class="footer-company-name">career.com © 2025</p>
+            </div>
+          
+            <div class="footer-center">
+          
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>44D Sripuram</span> Town, Tirunelveli</p>
+                </div>
+          
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+91 987 654 3210</p>
+                </div>
+          
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:support@company.com">support@career.com</a></p>
+                </div>
+          
+            </div>
+          
+            <div class="footer-right">
+          
+                <p class="footer-company-about">
+                    <span>About the company</span>
+                    A Career making site where you <strong>Choose</strong> your <strong>Goal</strong> as per your dream
+                </p>
+          
+                <div class="footer-icons">
+          
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+          
+               </div>
+          
+            </div>
+          
+          </footer>
+
+</body>
+</html>
